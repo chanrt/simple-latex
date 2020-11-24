@@ -46,6 +46,14 @@
 \newcommand{\drawline}{\vspace{5mm}\hrule}
 \newcommand{\nextpage}{\vspace{5mm}\hrule\newpage}
 
+% SYMBOL AND UNIT COMMANDS %
+\newcommand{\celsius}{\ensuremath{^\circ C}}
+\newcommand{\micro}{\ensuremath{\ \mu}}
+
+% MATH COMMANDS %
+\newcommand{\num}[2]{\ensuremath{#1 * 10^{#2}}}
+\newcommand{\ten}[1]{\ensuremath{10^{#1}}}
+
 % GRAPHICAL COMMANDS %
 \newcommand{\image}[2]{\begin{center}
 					   \includegraphics[scale=#2]{#1}
@@ -70,9 +78,10 @@
 \pagecolor{white}
 \color{black}
 
+% PREAMBLE ENDS %
 \begin{document}
 
 \insidebox{light-grey}{\textbf{Simple LaTeX}}
-Fork me at \href{https://www.github.com/chanrt}{GitHub}.
+Fork me at \href{https://www.github.com/chanrt}{GitHub}.\\
 
 \end{document}
