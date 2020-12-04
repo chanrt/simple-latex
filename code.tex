@@ -1,4 +1,12 @@
+% ----------------------------------------------------------------- %
+% This code was downloaded from simple-latex repository of GitHub user 'chanrt %
+% Fork me at github.com/chanrt %
+% ----------------------------------------------------------------- %
+
 \documentclass[12pt]{article}
+
+% ----------------------------------------------------------------- %
+%%% IMPORT PACKAGES SECTION %%%
 
 % REQUIRED for alphabetpoint and numberpoint %
 \usepackage{enumerate}
@@ -7,7 +15,6 @@
 \usepackage{graphicx}
 
 % REQUIRED for graphics %
-\usepackage{pstricks}
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
 
@@ -21,43 +28,33 @@
 % OPTIONAL %            
 \usepackage{fullpage}
 
-% COLORS %
-\definecolor{white}{RGB}{255 255 255}
-\definecolor{black}{RGB}{0 0 0}
-\definecolor{violet}{RGB}{127 0 255}
-\definecolor{indigo}{RGB}{75 0 120}
-\definecolor{blue}{RGB}{0 0 255}
-\definecolor{green}{RGB}{0 255 0}
-\definecolor{yellow}{RGB}{255 255 0}
-\definecolor{orange}{RGB}{255 69 0}
-\definecolor{red}{RGB}{255 0 0}
-\definecolor{purple}{RGB}{128 0 128}
-\definecolor{magenta}{RGB}{255 0 255}
-\definecolor{cyan}{RGB}{0 255 255}
-\definecolor{light-grey}{RGB}{215 215 215}
-\definecolor{custom-color}{RGB}{0 0 0}
-
-% ENVIRONMENTS %
+% ----------------------------------------------------------------- %
+%%% ENVIRONMENTS %%%
 \newenvironment{alphapoint}{\begin{enumerate}[a)]}{\end{enumerate}}
+% Provides alphabetized points %
+
 \newenvironment{numpoint}{\begin{enumerate}[1)]}{\end{enumerate}}
+% Provides numbered points %					
 
-% SIMPLE COMMANDS %            
+% ----------------------------------------------------------------- %
+%%% GENERAL COMMANDS %%%
 \newcommand{\point}[1]{\item\textbf{#1:}}
+% Used in itemized or enumerated environments, functions similar to a description list in HTML %
+
 \newcommand{\drawline}{\vspace{5mm}\hrule}
+% Draws a line at a finger-space width from content %
+
 \newcommand{\nextpage}{\vspace{5mm}\hrule\newpage}
+% Draws a line, and ends the current page %
 
-% SYMBOL AND UNIT COMMANDS %
-\newcommand{\celsius}{\ensuremath{^\circ C}}
-\newcommand{\micro}{\ensuremath{\ \mu}}
+\newcommand{\bigbrac}[1]{\ensuremath{\left( #1 \right)}}
+% Prints the given quantity inside enlarged brackets %
 
-% MATH COMMANDS %
-\newcommand{\num}[2]{\ensuremath{#1 * 10^{#2}}}
-\newcommand{\ten}[1]{\ensuremath{10^{#1}}}
-
-% GRAPHICAL COMMANDS %
 \newcommand{\image}[2]{\begin{center}
 					   \includegraphics[scale=#2]{#1}
 					   \end{center}}
+% Centralizes an image %
+
 \newcommand{\setboxcolor}[1]{\tcbset{
     frame code={}
     center title,
@@ -72,16 +69,149 @@
     boxsep=5pt,
     arc=0pt,outer arc=0pt,    
     }}
-\newcommand{\insidebox}[2]{\setboxcolor{#1}\begin{tcolorbox}#2\end{tcolorbox}}
+% Initializes a box with the given color and parameters %
 
-% BINDINGS %
+\newcommand{\insidebox}[2]{\setboxcolor{#1}\begin{tcolorbox}#2\end{tcolorbox}}
+% Prints the given text in a box of given color %
+
+\newcommand{\highlight}[1]{\insidebox{light-gray}{#1}}
+% Highlights the given text in a light-gray colored box %
+
+% ----------------------------------------------------------------- %
+%%% UNIT-RELATED COMMANDS %%%
+
+\newcommand{\unit}[2]{\ensuremath{#1 ^ {#2}}}
+% Raises a unit to the given power %
+
+\newcommand{\celsius}{\ensuremath{^\circ C}}
+% Prints degrees celsius %
+
+\newcommand{\fahr}{\ensuremath{^\circ F}}
+% Prints degrees fahrenheit %
+
+\newcommand{\micro}{\ensuremath{\ \mu}}
+% Prints the greek symbol mu %
+
+% ----------------------------------------------------------------- %
+%%% MATHEMATICAL ENTITIES %%%
+
+\newcommand{\set}[1]{\ensuremath{ \{ #1 \} }}
+% Prints the given quantity within braces %
+
+\newcommand{\rowvec}[1]{\ensuremath{ [ #1 ] }}
+% Prints the given quantity within square brackets %
+
+\newcommand{\report}[3]{\ensuremath{(#1 \pm #2)*10^{#3}}}
+% Prints a figure with uncertainity %
+
+% ----------------------------------------------------------------- %
+%%% FRACTION-RELATED COMMANDS %%%
+
+\newcommand{\reci}[1]{\ensuremath{\displaystyle\frac{1}{#1}}}
+
+\newcommand{\slope}[2]{\ensuremath{\displaystyle\frac{\Delta #1}{\Delta #2}}}
+% Prints small change in given quantity that follows due to a small change in another quantity %
+
+\newcommand{\derivative}[2]{\ensuremath{\displaystyle\frac{d #1}{d #2}}}
+% Prints derivative of given quantity with respect to the other one %
+
+\newcommand{\partialder}[2]{\ensuremath{\displaystyle\frac{\partial #1}{\partial #2}}}
+% Prints partial derivative of given quantiy with respect to the other one %
+
+\newcommand{\atconstant}[2]{\ensuremath{\bigbrac{#1}_{#2}}}
+% Prints a given quantity measured at a constant condition %
+
+% ----------------------------------------------------------------- %
+%%% EQUATION-RELATED COMMANDS %%%
+
+\newcommand{\numeq}[1]{\ensuremath{\ \dots \ (#1)}}
+% Numbers an equation with the given number %
+
+\newcommand{\slopeintercept}[2]{\ensuremath{y = #1 x #2}}
+% Prints a line in its slope intercept form %
+
+\newcommand{\generalline}[3]{\ensuremath{#1 x #2 y #3 = 0}}
+% Prints a line in its general form %
+
+\newcommand{\quadratic}[3]{\ensuremath{#1 x^2 #2 x #3 = 0}}
+% Prints quadratic equation in its general form %
+% NOTE: For above three, explicity write the sign of all arguments %
+
+\newcommand{\solvequadratic}[3]{\ensuremath{\displaystyle\frac{- (#2) \pm \sqrt{(#2)^2 - 4(#1)(#3)}}{2 (#1)}}}
+
+% ----------------------------------------------------------------- %
+%%% FUNCTION-RELATED COMMANDS %%%
+
+\newcommand{\abs}[1]{\ensuremath{| #1 |}}
+% Modulus function %
+
+\newcommand{\fractional}[1]{\ensuremath{\{ #1 \}}}
+% Fractional function %
+
+\newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
+% Greatest-integer or floor function %
+
+\newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
+% Ceiling function %
+
+\newcommand{\proportional}[2]{\ensuremath{#1 \ \alpha \ #2}}
+% Prints a proportionaly relationship between two given quantities %
+
+% ----------------------------------------------------------------- %
+%%% NUMBER-RELATED COMMANDS %%%
+
+\newcommand{\num}[2]{\ensuremath{#1 * 10^{#2}}}
+% Prints a numbers given its mantissa and power %
+
+\newcommand{\ten}[1]{\ensuremath{10^{#1}}}
+% Prints the given power of 10 %
+
+\newcommand{\perm}[2]{\ensuremath{ ^{#1}P _{#2}}}
+% Prints permutation %
+
+\newcommand{\comb}[2]{\ensuremath{ ^{#1}C _{#2}}}
+% Prints combination %
+
+% ----------------------------------------------------------------- %
+%%% REDEFINING MATH-ONLY COMMANDS %%%
+
+\newcommand{\fr}[2]{\ensuremath{\displaystyle\frac{#1}{#2}}}
+\newcommand{\alphaa}{\ensuremath{\alpha}}
+\newcommand{\betaa}{\ensuremath{\beta}}
+
+% ----------------------------------------------------------------- %
+%%% BINDINGS %%%
+
+%%% COLORS %%%
+\definecolor{white}{RGB}{255 255 255}
+\definecolor{black}{RGB}{0 0 0}
+\definecolor{violet}{RGB}{127 0 255}
+\definecolor{indigo}{RGB}{75 0 120}
+\definecolor{blue}{RGB}{0 0 255}
+\definecolor{green}{RGB}{0 255 0}
+\definecolor{yellow}{RGB}{255 255 0}
+\definecolor{orange}{RGB}{255 69 0}
+\definecolor{red}{RGB}{255 0 0}
+\definecolor{purple}{RGB}{128 0 128}
+\definecolor{magenta}{RGB}{255 0 255}
+\definecolor{cyan}{RGB}{0 255 255}
+\definecolor{light-gray}{RGB}{215 215 215}
+\definecolor{custom-color}{RGB}{0 0 0}
+
+%%% APPEARANCE %%%
 \pagecolor{white}
 \color{black}
 
-% PREAMBLE ENDS %
+% ----------------------------------------------------------------- %
+%%% MISCELLANEOUS %%%
+\newcommand{\declaration}[2]{\drawline I, #1, hereby declare that I have compiled this file without obtaining help from anyone. \image{0.5}{#2} \drawline}
+% Makes a declaration of non-plaigiarism, along with signature %
+
+%%% PREAMBLE ENDS %%%
+% ----------------------------------------------------------------- %
 \begin{document}
 
-\insidebox{light-grey}{\textbf{Simple LaTeX}}
+\highlight{\textbf{Simple LaTeX}}
 Fork me at \href{https://www.github.com/chanrt}{GitHub}.\\
 
 \end{document}
