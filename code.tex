@@ -11,6 +11,10 @@
 % REQUIRED for alphabetpoint and numberpoint %
 \usepackage{enumerate}
 
+% REQUIRED for math %
+\usepackage{amssymb}
+\usepackage{amsmath}
+
 % REQUIRED for images %
 \usepackage{graphicx}
 
@@ -104,6 +108,9 @@
 \newcommand{\report}[3]{\ensuremath{(#1 \pm #2)*10^{#3}}}
 % Prints a figure with uncertainity %
 
+\newcommand{\imp}{\ensuremath{\Rightarrow}}
+% Prints the implies symbol %
+
 % ----------------------------------------------------------------- %
 %%% FRACTION-RELATED COMMANDS %%%
 
@@ -175,7 +182,6 @@
 % ----------------------------------------------------------------- %
 %%% REDEFINING MATH-ONLY COMMANDS %%%
 
-\newcommand{\fr}[2]{\ensuremath{\displaystyle\frac{#1}{#2}}}
 \newcommand{\alphaa}{\ensuremath{\alpha}}
 \newcommand{\betaa}{\ensuremath{\beta}}
 
@@ -204,7 +210,7 @@
 
 % ----------------------------------------------------------------- %
 %%% MISCELLANEOUS %%%
-\newcommand{\declaration}[2]{\drawline I, #1, hereby declare that I have compiled this file without obtaining help from anyone. \image{0.5}{#2} \drawline}
+\newcommand{\declaration}[2]{\section*{Declaration} I, #1, hereby declare that I have compiled this file without obtaining help from anyone. \image{#2}{0.3} \drawline}
 % Makes a declaration of non-plaigiarism, along with signature %
 
 %%% PREAMBLE ENDS %%%
