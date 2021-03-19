@@ -49,6 +49,10 @@
 % PRESENTATION %
 \newcommand{\super}[1]{\ensuremath{^{#1}}}
 \newcommand{\sub}[1]{\ensuremath{_{#1}}}
+\newcommand{\st}{\ensuremath{^{st}}}
+\newcommand{\nd}{\ensuremath{^{nd}}}
+\newcommand{\rd}{\ensuremath{^{rd}}}
+\newcommand{\nth}{\ensuremath{^{th}}}
 \newcommand{\atconstant}[2]{\ensuremath{\bigbrac{#1}_{#2}}}
 \newcommand{\seq}[2]{\ensuremath{#1_1, #1_2, #1_3, \dots #1_{#2}}}
 \newcommand{\numeq}[1]{\ensuremath{ \ \dots \ (#1)}}
@@ -70,7 +74,11 @@
 \newcommand{\doubleder}[2]{\ensuremath{\displaystyle\frac{d^2 #1}{d #2^2}}}
 \newcommand{\nder}[3]{\ensuremath{\displaystyle\frac{d^{#3} #1}{d #2^{#3}}}}
 \newcommand{\partialder}[2]{\ensuremath{\displaystyle\frac{\partial #1}{\partial #2}}}
+\newcommand{\partialderk}[3]{\ensuremath{\bigbrac{\displaystyle\frac{\partial #1}{\partial #2}}_{#3}}}
 \newcommand{\doublepartialder}[2]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2^2}}}
+\newcommand{\doublepartialderk}[3]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2^2}}_{#3}}}
+\newcommand{\mixedpartialder}[3]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}}
+\newcommand{\mixedpartialderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}_{#4}}}
 \newcommand{\npartialder}[3]{\ensuremath{\displaystyle\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
 
 % INTEGRAL CALCULUS %
@@ -188,6 +196,7 @@ Fork me at \href{https://www.github.com/chanrt}{GitHub}.
 
 \point{Superscript} num1 \esc super \braces{num2} prints num1\super{num2}
 \point{Subscript} num1 \esc sub \braces{num2} prints num1\sub{num2}
+\point{Ordinal numbers} \esc st, \esc nd \esc rd and \esc nth print \st, \nd, \rd, \nth respectively
 \point{Expression evaluated at a constant value} \esc atconstant \braces{exp} \braces{constant} prints \atconstant{exp}{constant} with brackets of appropriate size
 \point{Sequence} \esc seq \braces{x} \braces{n} prints \seq{x}{n}
 \point{Numbering an equation} \esc numeq \braces{2} prints \numeq{2} 
