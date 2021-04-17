@@ -35,7 +35,7 @@
 \newcommand{\report}[3]{\ensuremath{(#1 \pm #2) \times 10^{#3}}}
 
 % CONTAINERS %
-\newcommand{\abs}[1]{\ensuremath{| #1 |}}
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
 \newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
 \newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
 \newcommand{\braces}[1]{\ensuremath{\left\lbrace #1 \right\rbrace}}
@@ -71,21 +71,29 @@
 \newcommand{\slope}[2]{\ensuremath{\displaystyle\frac{\Delta #1}{\Delta #2}}}
 \newcommand{\limitof}[3]{\ensuremath{\lim\limits_{#2 \rightarrow #3}} #1}
 \newcommand{\der}[2]{\ensuremath{\displaystyle\frac{d #1}{d #2}}}
-\newcommand{\doubleder}[2]{\ensuremath{\displaystyle\frac{d^2 #1}{d #2^2}}}
 \newcommand{\nder}[3]{\ensuremath{\displaystyle\frac{d^{#3} #1}{d #2^{#3}}}}
 \newcommand{\partialder}[2]{\ensuremath{\displaystyle\frac{\partial #1}{\partial #2}}}
 \newcommand{\partialderk}[3]{\ensuremath{\bigbrac{\displaystyle\frac{\partial #1}{\partial #2}}_{#3}}}
-\newcommand{\doublepartialder}[2]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2^2}}}
-\newcommand{\doublepartialderk}[3]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2^2}}_{#3}}}
-\newcommand{\mixedpartialder}[3]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}}
-\newcommand{\mixedpartialderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}_{#4}}}
+\newcommand{\mixedder}[3]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}}
+\newcommand{\mixedderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}_{#4}}}
 \newcommand{\npartialder}[3]{\ensuremath{\displaystyle\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
+\newcommand{\npartialderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^{#3} #1}{\partial #2^{#3}}}_{#4}}}
 
 % INTEGRAL CALCULUS %
 \newcommand{\indefint}[3]{\ensuremath{\int\limits_{#2}^{#3} #1}}
-\newcommand{\defint}[3]{\ensuremath{\left\lbrace#1\right\rbrace_{#2}^{#3}}}
+\newcommand{\defint}[3]{\ensuremath{\left|#1\right|_{#2}^{#3}}}
 \newcommand{\indefintinf}[1]{\ensuremath{\int\limits_{-\infty}^{+\infty} #1}}
-\newcommand{\defintinf}[1]{\ensuremath{\left\lbrace#1\right\rbrace_{-\infty}^{\infty}}}
+\newcommand{\defintinf}[1]{\ensuremath{\left|#1\right|_{-\infty}^{\infty}}}
+
+% PHYSICS SYMBOLS %
+\newcommand{\xdot}{\ensuremath{\dot{x}}}
+\newcommand{\xddot}{\ensuremath{\ddot{x}}}
+\newcommand{\pdot}{\ensuremath{\dot{p}}}
+\newcommand{\pddot}{\ensuremath{\ddot{p}}}
+\newcommand{\qdot}{\ensuremath{\dot{q}}}
+\newcommand{\qddot}{\ensuremath{\ddot{q}}}
+\newcommand{\hamil}{\ensuremath{\mathcal{H}}}
+\newcommand{\lagr}{\ensuremath{\mathcal{L}}}
 
 % ORBITALS %
 \newcommand{\paired}{\ensuremath{\boxed{\uparrow \downarrow}}}
@@ -215,5 +223,53 @@ Fork me at \href{https://www.github.com/chanrt}{GitHub}.
 
 \end{itemize}
 \drawline
+
+\section{Combinatorics}
+
+\begin{itemize}
+
+\point{Permutation} \esc perm \braces{n} \braces{r} prints \perm{n}{r}
+\point{Combination} \esc comb \braces{n} \braces{r} prints \comb{n}{r}
+
+\end{itemize}
+\drawline
+
+\section{Differential Calculus}
+
+\begin{itemize}
+
+\point{Slope} \esc slope \braces{x} \braces{t} prints \slope{x}{t}
+
+\point{Limits} \esc limitof \braces{f(x)} \braces{x} \braces{0} prints \limitof{f(x)}{x}{0}
+
+\point{Derivative} \esc der \braces{x} \braces{t} prints \der{x}{t}
+
+\point{n\nth Derivative} \esc nder \braces{x} \braces{t} \braces{n} prints \nder{x}{t}{n}
+
+\point{Partial Derivative} \esc partialder \braces{x} \braces{t} prints \partialder{x}{t}
+
+\point{n\nth Partial Derivative} \esc npartialder \braces{x} \braces{t} \braces{n} prints \npartialder{x}{t}{n}
+
+\point{Mixed Derivative} \esc mixedder \braces{x} \braces{y} \braces{t} prints \mixedder{x}{y}{t}
+
+\point{Evaluation at constant} Adding k to each command and an extra \braces{k}, evaluates partial derivatives at k. For example, \esc npartialderk \braces{x} \braces{t} \braces{3} \braces{k} prints \npartialderk{x}{t}{2}{k}
+
+\end{itemize}
+\drawline
+
+\section{Integral Calculus}
+
+\begin{itemize}
+
+\point{Indefinite Integral} \esc indefint \braces{f(x) dx} \braces{a} \braces{b} prints \indefint{f(x) dx}{a}{b}
+
+\point{Definite Integral} \esc defint \braces{f(x)} \braces{a} \braces{b} prints \defint{f(x)}{a}{b}
+
+\point{Indefinite Integral at infinity} \esc indefintinf \braces{f(x) dx} prints \indefintinf{f(x) dx}
+
+\point{Definite Integral at infinity} \esc defintinf \braces{f(x)} prints \defintinf{f(x)}
+
+\end{itemize}
+\nextpage
 
 \end{document}
