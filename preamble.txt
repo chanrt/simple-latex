@@ -1,0 +1,139 @@
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+            
+% SYMBOLS %
+\newcommand{\esc}{\textbackslash}
+\newcommand{\imp}{\ensuremath{\Rightarrow}}
+\newcommand{\degree}{\ensuremath{^{\circ}}}
+\newcommand{\proportional}{\ensuremath{ \ \alpha \ }}
+\newcommand{\complex}{\ensuremath{\mathbb{C} \ }}
+\newcommand{\reals}{\ensuremath{\mathbb{R} \ }}
+\newcommand{\rationals}{\ensuremath{\mathbb{Q} \ }}
+\newcommand{\integers}{\ensuremath{\mathbb{Z} \ }}
+\newcommand{\naturals}{\ensuremath{\mathbb{N} \ }}
+
+% NUMBERS %
+\newcommand{\num}[2]{\ensuremath{#1 \times 10^{#2}}}
+\newcommand{\ten}[1]{\ensuremath{10^{#1}}}
+\newcommand{\report}[3]{\ensuremath{(#1 \pm #2) \times 10^{#3}}}
+
+% CONTAINERS %
+\newcommand{\abs}[1]{\ensuremath{\left| #1 \right|}}
+\newcommand{\floor}[1]{\ensuremath{\lfloor #1 \rfloor}}
+\newcommand{\ceil}[1]{\ensuremath{\lceil #1 \rceil}}
+\newcommand{\braces}[1]{\ensuremath{\left\lbrace #1 \right\rbrace}}
+\newcommand{\angles}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\bigbrac}[1]{\ensuremath{\left( #1 \right)}}
+
+% FRACTIONS %
+\newcommand{\reci}[1]{\ensuremath{\displaystyle\frac{1}{#1}}}
+\newcommand{\bigfrac}[2]{\ensuremath{\bigbrac{\displaystyle\frac{#1}{#2}}}}
+
+% PRESENTATION %
+\newcommand{\super}[1]{\ensuremath{^{#1}}}
+\newcommand{\sub}[1]{\ensuremath{_{#1}}}
+\newcommand{\st}{\ensuremath{^{st}}}
+\newcommand{\nd}{\ensuremath{^{nd}}}
+\newcommand{\rd}{\ensuremath{^{rd}}}
+\newcommand{\nth}{\ensuremath{^{th}}}
+\newcommand{\atconstant}[2]{\ensuremath{\bigbrac{#1}_{#2}}}
+\newcommand{\seq}[2]{\ensuremath{#1_1, #1_2, #1_3, \dots #1_{#2}}}
+\newcommand{\numeq}[1]{\ensuremath{ \ \dots \ (#1)}}
+
+% ITERATION %
+\newcommand{\summation}[3]{\ensuremath{\sum\limits_{#2}^{#3} #1}}
+\newcommand{\product}[3]{\ensuremath{\prod\limits_{#2}^{#3} #1}}
+\newcommand{\union}[3]{\ensuremath{\cup_{#2}^{#3} #1}}
+\newcommand{\intersection}[3]{\ensuremath{\cap_{#2}^{#3} #1}}
+
+% COMBINATORICS %
+\newcommand{\perm}[2]{\ensuremath{ ^{#1}P _{#2}}}
+\newcommand{\comb}[2]{\ensuremath{{#1 \choose #2}}}
+
+% DIFFERENTIAL CALCULUS %
+\newcommand{\slope}[2]{\ensuremath{\displaystyle\frac{\Delta #1}{\Delta #2}}}
+\newcommand{\limitof}[3]{\ensuremath{\lim\limits_{#2 \rightarrow #3}} #1}
+\newcommand{\der}[2]{\ensuremath{\displaystyle\frac{d #1}{d #2}}}
+\newcommand{\nder}[3]{\ensuremath{\displaystyle\frac{d^{#3} #1}{d #2^{#3}}}}
+\newcommand{\partialder}[2]{\ensuremath{\displaystyle\frac{\partial #1}{\partial #2}}}
+\newcommand{\partialderk}[3]{\ensuremath{\bigbrac{\displaystyle\frac{\partial #1}{\partial #2}}_{#3}}}
+\newcommand{\mixedder}[3]{\ensuremath{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}}
+\newcommand{\mixedderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^2 #1}{\partial #2 \partial #3}}_{#4}}}
+\newcommand{\npartialder}[3]{\ensuremath{\displaystyle\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
+\newcommand{\npartialderk}[4]{\ensuremath{\bigbrac{\displaystyle\frac{\partial^{#3} #1}{\partial #2^{#3}}}_{#4}}}
+
+% INTEGRAL CALCULUS %
+\newcommand{\indefint}[3]{\ensuremath{\int\limits_{#2}^{#3} #1}}
+\newcommand{\defint}[3]{\ensuremath{\left|#1\right|_{#2}^{#3}}}
+\newcommand{\indefintinf}[1]{\ensuremath{\int\limits_{-\infty}^{+\infty} #1}}
+\newcommand{\defintinf}[1]{\ensuremath{\left|#1\right|_{-\infty}^{\infty}}}
+
+% PHYSICS SYMBOLS %
+\newcommand{\xdot}{\ensuremath{\dot{x}}}
+\newcommand{\xddot}{\ensuremath{\ddot{x}}}
+\newcommand{\pdot}{\ensuremath{\dot{p}}}
+\newcommand{\pddot}{\ensuremath{\ddot{p}}}
+\newcommand{\qdot}{\ensuremath{\dot{q}}}
+\newcommand{\qddot}{\ensuremath{\ddot{q}}}
+\newcommand{\hamil}{\ensuremath{\mathcal{H}}}
+\newcommand{\lagr}{\ensuremath{\mathcal{L}}}
+
+% ORBITALS %
+\newcommand{\paired}{\ensuremath{\boxed{\uparrow \downarrow}}}
+\newcommand{\unpaired}{\ensuremath{\boxed{\uparrow \ }}}
+
+% FORMATTING %
+\pagecolor{white}
+\color{black}
+\newcommand{\drawline}{\vspace{5mm}\hrule}
+\newcommand{\nextpage}{\vspace{5mm}\hrule\newpage}
+\newcommand{\point}[1]{\item\textbf{#1:}}
+
+% GRAPHICS %
+\newcommand{\image}[2]{\begin{center}\includegraphics[scale=#2]{#1}\end{center}}  
+\newcommand{\setboxcolor}[1]{\tcbset{
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=#1,
+    colframe=black,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,    
+    }}
+\newcommand{\insidebox}[2]{\setboxcolor{#1}\begin{tcolorbox}#2\end{tcolorbox}}
+\newcommand{\highlight}[1]{\insidebox{light-gray}{#1}}
+
+% COLORS %
+\definecolor{white}{RGB}{255 255 255}
+\definecolor{black}{RGB}{0 0 0}
+\definecolor{violet}{RGB}{127 0 255}
+\definecolor{indigo}{RGB}{75 0 120}
+\definecolor{blue}{RGB}{0 0 255}
+\definecolor{green}{RGB}{0 255 0}
+\definecolor{yellow}{RGB}{255 255 0}
+\definecolor{orange}{RGB}{255 69 0}
+\definecolor{red}{RGB}{255 0 0}
+\definecolor{purple}{RGB}{128 0 128}
+\definecolor{magenta}{RGB}{255 0 255}
+\definecolor{cyan}{RGB}{0 255 255}
+\definecolor{light-gray}{RGB}{215 215 215}
+\definecolor{custom-color}{RGB}{0 0 0}
+
+% DECLARATIONS %
+\newcommand{\nocopy}[2]{\vspace{3mm}\section*{Declaration} I, #1, hereby declare that I have compiled this file without obtaining help from anyone. \image{#2}{0.3} \drawline}
+\newcommand{\thankyou}{\begin{center}\textbf{Thank You}\end{center}}
